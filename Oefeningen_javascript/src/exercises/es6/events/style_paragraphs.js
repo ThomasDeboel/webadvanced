@@ -31,5 +31,37 @@ checkbox.forEach((check) => {
         }
     });
 });
+/*
+checkbox.forEach((box) => {
+    box.addEventListener('change', () => {
+        console.log(box.checked);
+        if (box.getAttribute('id') === 'bold') {
+            if (box.checked) {
+                document.getElementById('paragraphs').style.fontWeight = box.id;
+            } else {
+                document.getElementById('paragraphs').style.fontWeight = null;
+            }
+        } else if (box.getAttribute('id') === 'italic') {
+            if (box.checked) {
+                document.getElementById('paragraphs').style.fontStyle = box.id;
+            } else {
+                document.getElementById('paragraphs').style.fontStyle = null;
+            }
+        }
+    });
+});*/
 
+const button = document.querySelector('div button');
 
+button.addEventListener('click', () => {
+    console.log('clicked');
+    if (button.innerHTML === 'Dark theme') {
+        div.style.backgroundColor = '#111';
+        div.style.color = '#f8f8f8';
+        button.innerHTML = 'Light theme';
+    } else {
+        div.style.backgroundColor = null;
+        div.style.color = null;
+        button.innerHTML = 'Dark theme';
+    }
+});
