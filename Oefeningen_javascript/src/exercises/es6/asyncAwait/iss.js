@@ -31,11 +31,17 @@ async function getData() {
     iss.lng = data.longitude;
     updateIssMarker();
     getCountry();
+    document.getElementById('info').innerHTML = `Coordinates: ${iss.lat} lat, ${iss.lng} long; Country : ${iss.country}`;
 }
 async function getCountry() {
-    const responseCountry = await fetch(`${reverseGeoUrl}&lat=${iss.lat}&lon=${iss.lng}`)
+    const responseCountry = await fetch(`${reverseGeoUrl}&lat=${iss.lat}&lon=${iss.lng}`);
     const dataCountry = await responseCountry.json();
-    iss.country = dataCountry.address.country;
+    console.log(dataCountry);
+    if (dataCountry.error === 'Unable to geocode') {
+        iss.country = 'Over the sea';
+    } else {
+        iss.country = dataCountry.address.country;
+    }
 }
 getData();
 setInterval(getData, 5000); // execute clock() repeatedly (every second = 5000ms)
