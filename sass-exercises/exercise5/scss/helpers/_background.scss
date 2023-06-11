@@ -1,0 +1,14 @@
+@use "sass:color";
+
+.bg{
+  @each $key, $value in $color-map{
+    //box
+    &-#{$key}{
+      @for $x from 1 through 100{
+        &-#{$x}{
+          background-color: color.change($value,$alpha:$x*0.01);
+        }
+      }
+    }
+  }
+}

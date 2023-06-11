@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: $fontstack-text;
+  @include layout(white, 1rem);
+
+  @media screen and (min-width: $small){
+    @include layout(black, 1.25rem)
+  }
+}
+article{
+  h1{
+    font-family: $fontstack-titles;
+    font-size: 1.75rem;
+  }
+  p{
+    padding-bottom: 5px;
+  }
+}
+a{
+  display: block;
+  width: 130px;
+  height: auto;
+  font-family: $fontstack-titles;
+  @include layout(black, 1rem);
+  margin-left: 0;
+  text-decoration: none;
+  &:hover{
+    @include layout(dimgray, 1rem);
+    margin-left: 0;
+  }
+}
