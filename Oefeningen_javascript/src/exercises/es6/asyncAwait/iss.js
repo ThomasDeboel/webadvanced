@@ -1,8 +1,6 @@
 const issPositionUrl = 'https://api.wheretheiss.at/v1/satellites/25544';
 const reverseGeoUrl = 'https://nominatim.openstreetmap.org/reverse?format=json';
 
-
-
 // default coordinates are for Thomas More, campus Geel
 const iss = {
     lat: 51.16095,
