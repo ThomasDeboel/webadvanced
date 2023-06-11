@@ -41,8 +41,10 @@
     "eslint-plugin-prettier": "^4.2.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-css-mqpacker": "^1.0.1",
     "gulp-dart-sass": "^1.0.2",
+    "gulp-favicons": "^3.0.0",
     "gulp-imagemin": "^8.0.0",
     "gulp-minifier": "^3.5.0",
     "gulp-newer": "^1.4.0",
@@ -51,12 +53,13 @@
     "gulp-postcss": "^9.0.1",
     "gulp-real-favicon": "^0.3.2",
     "gulp-sourcemaps": "^3.0.0",
-    "prettier": "^2.8.4",
-    "gulp-concat": "^2.6.1",
-    "gulp-favicons": "^3.0.0",
     "jquery": "^3.6.0",
     "mini.css": "^3.0.1",
+    "prettier": "^2.8.4",
     "prismjs": "^1.23.0",
     "workbox-build": "^6.0.2"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.1"
   }
 }

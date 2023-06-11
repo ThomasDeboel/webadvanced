@@ -1,6 +1,8 @@
 const issPositionUrl = 'https://api.wheretheiss.at/v1/satellites/25544';
 const reverseGeoUrl = 'https://nominatim.openstreetmap.org/reverse?format=json';
 
+
+
 // default coordinates are for Thomas More, campus Geel
 const iss = {
     lat: 51.16095,
@@ -23,4 +25,19 @@ function updateIssMarker() {
     issMarker.setLatLng([iss.lat, iss.lng]);
     map.setView([iss.lat, iss.lng], map.getZoom());
 }
-updateIssMarker();
+async function getData() {
+    const response = await fetch(issPositionUrl);
+    const data = await response.json();
+
+    iss.lat = data.latitude;
+    iss.lng = data.longitude;
+    updateIssMarker();
+    getCountry();
+}
+async function getCountry() {
+    const responseCountry = await fetch(`${reverseGeoUrl}&lat=${iss.lat}&lon=${iss.lng}`)
+    const dataCountry = await responseCountry.json();
+    iss.country = dataCountry.address.country;
+}
+getData();
+setInterval(getData, 5000); // execute clock() repeatedly (every second = 5000ms)
